@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>Note to myself: Copy this file into /out/ app...!</comment>
+    <entry key="FileName1">epson_to_print.html</entry>
+    <entry key="FileName2">zdesigner_to_print.html</entry>
+    <entry key="FileName3">theFileName3</entry>
+    <entry key="FolderName1">C:\incoming_epson</entry>
+    <entry key="FolderName2">C:\incoming_zdesigner</entry>
+    <entry key="FolderName3">C:\theFolderName3</entry>
+    <entry key="printer_1_ServerAddress">https://raw.githubusercontent.com/AndreiD/Kraken/master/epson_to_print.html
+    </entry>
+    <entry key="printer_2_ServerAddress">
+        https://raw.githubusercontent.com/AndreiD/Kraken/master/zdesigner_to_print.html
+    </entry>
+    <entry key="printer_3_ServerAddress">http://website_url.com/location/location3</entry>
+
+    <entry key="printer_1_Command">"C:\ne_trii\printhtml.exe" file="c:\incoming_epson\epson_to_print.html"
+        leftmargin="0.2" rightmargin="0.2" topmargin="0.2" bottommargin="0.2" printername="epson"
+    </entry>
+    <entry key="printer_2_Command">"C:\ne_trii\printhtml.exe" file="c:\incoming_zdesigner\zdesigner_to_print.html"
+        leftmargin="0.2" rightmargin="0.2" topmargin="0.2" bottommargin="0.2" printername="ZDesigner GK420t"
+    </entry>
+
+
+</properties>
