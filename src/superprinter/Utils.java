@@ -1,16 +1,16 @@
 package superprinter;
 
+
 import org.apache.commons.io.FileUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.channels.FileChannel;
 
 
 public class Utils {
-    public static void check_directory(String directory1, String printer_Command) {
+    public static boolean check_directory(String directory1, String printer_Command) {
         File dir = new File(directory1);
 
         if (!dir.exists()) {
@@ -22,22 +22,25 @@ public class Utils {
 
         //are there files in the directory
         if (dir.listFiles().length < 1) {
-            System.out.println("no files in " + directory1 + ".");
-            return;
+            return false;
         }
 
         //files are present. print them
         File[] listFiles = dir.listFiles();
         for (File theFile : listFiles) {
-            System.out.println("PRINTING >> " + theFile.getPath());
-            print_file(printer_Command);
+            if (theFile.length() > 0) {
+                print_file(printer_Command);
+                return true;
+            } else {
+                return false;
+            }
         }
 
 
+        return false;
     }
 
     private static void print_file(String printer_Command) {
-
 
         try {
             Process p = Runtime.getRuntime().exec(printer_Command);
@@ -66,16 +69,63 @@ public class Utils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(fileUrl1 + " downloaded.");
+    }
+
+    static void reencode_file(String encode_to_windows_1251_command) {
+        try {
+            Process p = Runtime.getRuntime().exec(encode_to_windows_1251_command);
+            p.waitFor();
+            InputStream is = p.getInputStream();
+            int i;
+            while ((i = is.read()) != -1) {
+                System.out.print((char) i);
+            }
+
+        } catch (IOException ex) {
+            System.out.println("the file can't be accessed (not enough permissions) " + ex.getMessage());
+
+        } catch (InterruptedException ex) {
+            System.out.println("the process is being stopped by some external situation: " + ex.getMessage());
+        }
 
     }
 
     public static void delete_file(String file_path) {
-        if(!new File(file_path).delete()){
-            System.out.println("CANNOT DELETE FILE "+file_path);
-        }else{
-            System.out.println("file deleted.");
+        if (!new File(file_path).delete()) {
+            System.out.println("CANNOT DELETE FILE " + file_path);
+        }
+    }
+
+
+    public static void copyFile(File sourceFile, File destFile)
+            throws IOException {
+        if (!sourceFile.exists()) {
+            return;
+        }
+        if (!destFile.exists()) {
+            destFile.createNewFile();
+        }
+        FileChannel source = null;
+        FileChannel destination = null;
+        source = new FileInputStream(sourceFile).getChannel();
+        destination = new FileOutputStream(destFile).getChannel();
+        if (destination != null && source != null) {
+            destination.transferFrom(source, 0, source.size());
+        }
+        if (source != null) {
+            source.close();
+        }
+        if (destination != null) {
+            destination.close();
         }
 
+    }
+
+    public static void Sleep_for(int seconds){
+        try {
+            Thread.sleep(seconds*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

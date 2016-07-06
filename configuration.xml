@@ -2,18 +2,19 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <comment>Note to myself: Copy this file into /out/ app...!</comment>
+    <entry key="retry_interval_seconds_short">1</entry>
+    <entry key="retry_interval_seconds_long">10</entry>
     <entry key="FileName1">epson_to_print.html</entry>
     <entry key="FileName2">zdesigner_to_print.html</entry>
-    <entry key="FileName3">theFileName3</entry>
+    <entry key="FileName3">fiscal.bon</entry>
     <entry key="FolderName1">C:\incoming_epson</entry>
     <entry key="FolderName2">C:\incoming_zdesigner</entry>
-    <entry key="FolderName3">C:\theFolderName3</entry>
-    <entry key="printer_1_ServerAddress">https://raw.githubusercontent.com/AndreiD/Kraken/master/epson_to_print.html
-    </entry>
+
+    <entry key="printer_1_ServerAddress">http://www.pizzalab.outcon.eu/testprinter/2/1</entry>
     <entry key="printer_2_ServerAddress">
-        https://raw.githubusercontent.com/AndreiD/Kraken/master/zdesigner_to_print.html
+        http://www.pizzalab.outcon.eu/testprinter/2/2
     </entry>
-    <entry key="printer_3_ServerAddress">http://website_url.com/location/location3</entry>
+    <entry key="printer_3_ServerAddress">http://www.pizzalab.outcon.eu/testprinter/3/3</entry>
 
     <entry key="printer_1_Command">"C:\ne_trii\printhtml.exe" file="c:\incoming_epson\epson_to_print.html"
         leftmargin="0.2" rightmargin="0.2" topmargin="0.2" bottommargin="0.2" printername="epson"
@@ -21,6 +22,5 @@
     <entry key="printer_2_Command">"C:\ne_trii\printhtml.exe" file="c:\incoming_zdesigner\zdesigner_to_print.html"
         leftmargin="0.2" rightmargin="0.2" topmargin="0.2" bottommargin="0.2" printername="ZDesigner GK420t"
     </entry>
-
-
+    <entry key="encode_to_windows_1251_command">"C:\tmp\reencode.cmd"</entry>
 </properties>

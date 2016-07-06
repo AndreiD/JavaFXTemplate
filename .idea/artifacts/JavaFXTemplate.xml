@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="JavaFXTemplate">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaFXTemplate</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="superprinter.Main" />
+        <option name="description" value="super printer outcon.eu" />
+        <option name="htmlParamFile" value="" />
+        <option name="paramFile" value="" />
+        <option name="title" value="Super Printer" />
+        <option name="vendor" value="outcon.eu" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="JavaFXTemplate.jar">
+        <element id="module-output" name="JavaFXTemplate" />
+      </element>
+      <element id="library" level="project" name="commons-io-2.5" />
+      <element id="library" level="project" name="reactfx-1.4.1" />
+    </root>
+  </artifact>
+</component>
